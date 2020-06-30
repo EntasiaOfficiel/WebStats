@@ -31,7 +31,10 @@ window.onload = function(){
                     ticks:{
                         min: 0,
                         max: 8,
-                        stepSize: 0.5
+                        stepSize: 0.5,
+                        callback : (a)=>{
+                            return a+"Go"
+                        }
                     },
                     display: true,
                     scaleLabel: {
@@ -76,16 +79,9 @@ requ.onreadystatechange = function() {
         let d = []
 
         for(let i=0;i<json.time.length;i++){
-            let x = json.time[i]
+            let x = Number(json.time[i])
             let y = r(json.ram[i]*8/MAXRAM)
-            // console.log(x+" "+y)
-            console.log("pushed "+x+" with "+y)
             d.push({x:x, y:y})
-            if(x==287&&y==2.1){
-                console.log("ok")
-                // d.push({x:x, y:y})
-                d.push({x:287, y:2.1})
-            }
         }
         
         // d.push({x:0, y:2})
@@ -101,7 +97,7 @@ requ.onreadystatechange = function() {
 }
 
 function r(a){
-    return Math.round(a*10)/10
+    return Math.round(a*100)/100
 }
 
 requ.open("GET", url, true)
