@@ -8,13 +8,18 @@
 	</head>
 	<body>
 		<div id="menu">
-			<?php
-				for
-			?>
+			<ul>
+				<?php
+				foreach(scandir("data") as $v){
+					if($v == "." || $v == "..")continue;
+					echo "<li> <a> ".$v." </a> </li>";
+				}
+				?>
+			</ul>
 		</div>
-		<p id="separator"> </p>
+		<p id="separator">ttt </p>
 		<div id="content">
-			<canvas id="data" width="600" height="400"></canvas>
+			<canvas id="chart" width="600" height="400"></canvas>
 		</div>
 	</body>
 </html>

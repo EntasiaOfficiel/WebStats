@@ -1,5 +1,5 @@
 window.onload = function(){
-    var rice = document.getElementById('rice').getContext('2d');
+    var rice = document.getElementById('chart').getContext('2d');
     new Chart(rice, {
         type: 'line',
         data: data,
@@ -32,7 +32,7 @@ window.onload = function(){
 var data = {
     labels: [],
     datasets : [{
-        label : 'test',
+        label : 'RAM',
         fillColor : "rgba(172,194,132,0.4)",
         strokeColor : "#ACC26D",
         pointColor : "#fff",

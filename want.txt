@@ -1,0 +1,2 @@
+http://localhost/index.php&type=ram&chart=all
+http://localhost/index.php&type=ramcpu&chart=06.22
