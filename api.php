@@ -32,15 +32,16 @@ if(!isset($_GET["chart"]))err("chart name not set");
 $chart = parseChart($_GET["chart"]);
 if($chart==NULL)err("Invalid chart name");
 
-$type = strtolower($_GET["type"]);
 $content = file_get_contents("data/".$chart.".txt");
 $ret = [];
 $ret["ok"] = 1;
+$ret["time"] = [];
 $ret["ram"] = [];
 $ret["cpu"] = [];
 foreach(explode("\n", $content) as $line){
 	if($line=="")break;
 	$s = explode(" ", $line);
+	array_push($ret["time"], $s[0]);
 	array_push($ret["ram"], $s[1]);
 	// array_push($ret["cpu"], $s[2]);
 }

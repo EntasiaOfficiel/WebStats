@@ -2,9 +2,9 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Rice Consumption</title>
-		<script src='chart.min.js'></script>
-		<script src='script.js'></script>
-		<link rel="stylesheet" type="text/css" href="other/global.css">
+		<script src='ressources/chart.min.js'></script>
+		<script src='ressources/script.js'></script>
+		<link rel="stylesheet" type="text/css" href="ressources/global.css">
 	</head>
 	<body>
 		<div id="menu">
