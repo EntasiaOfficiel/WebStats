@@ -17,7 +17,7 @@
 				?>
 			</ul>
 		</div>
-		<p id="separator">ttt </p>
+		<p id="separator"></p>
 		<div id="content">
 			<canvas id="chart" width="600" height="400"></canvas>
 		</div>

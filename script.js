@@ -1,3 +1,7 @@
+function changePage(page){
+    window.history.pushState({}, {}, "/"+page);
+}
+
 window.onload = function(){
     var rice = document.getElementById('chart').getContext('2d');
     new Chart(rice, {
