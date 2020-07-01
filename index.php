@@ -1,19 +1,22 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Rice Consumption</title>
-		<script src='ressources/chart.min.js'></script>
+		<title>Visualisation de la RAM</title>
 		<script src='ressources/script.js'></script>
+		<script src='ressources/chart.min.js'></script>
+		<script src='ressources/chart.js'></script>
 		<link rel="stylesheet" type="text/css" href="ressources/global.css">
 	</head>
 	<body>
 		<div id="menu">
 			<ul>
 				<?php
-				foreach(scandir("data") as $v){
-					if($v == "." || $v == "..")continue;
-					echo "<li> <a> ".$v." </a> </li>";
-				}
+					if(isset($_GET["chart"]))$selected = $_GET["chart"];
+					else $selected = "";
+					foreach(scandir("data") as $v){
+						if($v == "." || $v == "..")continue;
+						echo "<li> <a>".substr($v, 0, 5)."</a> </li>";
+					}
 				?>
 			</ul>
 		</div>

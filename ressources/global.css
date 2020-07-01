@@ -5,13 +5,18 @@
 #menu li {
 	display: inline-block;
 
-	border-left: 1px solid gray;
 	padding-left: 10px;
-	border-right: 1px solid gray;
 	padding-right: 10px;
+	/* border-left: 1px solid gray; */
+	border-right: 1px solid gray;
 }
 
-/* #menu a{
-	color: black;
-	text-decoration: none;
-} */
+
+.unselected{
+	cursor: pointer;
+}
+
+.selected{
+	color: orange;
+	cursor: default;
+}
