@@ -20,11 +20,11 @@ window.onload = function(){
                                 return b/12
                             }
                         }
-                    },
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Temps en heure'
                     }
+                    // scaleLabel: {
+                    //     display: true,
+                    //     labelString: 'Temps en heure'
+                    // }
                 }],
 
                 yAxes: [{
@@ -39,7 +39,7 @@ window.onload = function(){
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'RAM'
+                        labelString: 'RAMa'
                     }
                 }]
             }
@@ -72,33 +72,29 @@ const MAXRAM = 8594128896
 const requ = new XMLHttpRequest()
 const url = "http://localhost/api.php?chart=06.01"
 
-requ.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        // console.log(this.responseText)
-        let json = JSON.parse(this.responseText)
-        let d = []
+// requ.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//         // console.log(this.responseText)
+//         let json = JSON.parse(this.responseText)
+//         let d = []
 
-        for(let i=0;i<json.time.length;i++){
-            let x = Number(json.time[i])
-            let y = r(json.ram[i]*8/MAXRAM)
-            d.push({x:x, y:y})
-        }
+//         for(let i=0;i<json.time.length;i++){
+//             let x = Number(json.time[i])
+//             let y = r(json.ram[i]*8/MAXRAM)
+//             d.push({x:x, y:y})
+//         }
         
-        // d.push({x:0, y:2})
-        // d.push({x:2, y:4})
-        // d.push({x:3, y:2})
-        // d.push({x:5, y:6})
-        // d.push({x:9, y:2})
-        // d.push({x:12, y:5})
-        console.log(d)
-        data.datasets[0].data = d
-        CHART.update()
-    }
-}
+//         // d.push({x:0, y:2})
+//         // d.push({x:2, y:4})
+//         // d.push({x:3, y:2})
+//         // d.push({x:5, y:6})
+//         // d.push({x:9, y:2})
+//         // d.push({x:12, y:5})
+//         console.log(d)
+//         data.datasets[0].data = d
+//         CHART.update()
+//     }
+// }
 
-function r(a){
-    return Math.round(a*100)/100
-}
-
-requ.open("GET", url, true)
-requ.send()
+// requ.open("GET", url, true)
+// requ.send()
