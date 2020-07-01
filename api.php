@@ -1,4 +1,5 @@
 <?php
+require("config.php");
 
 header('Content-Type: application/json');
 
@@ -32,7 +33,7 @@ if(!isset($_GET["chart"]))err("chart name not set");
 $chart = parseChart($_GET["chart"]);
 if($chart==NULL)err("Invalid chart name");
 
-$content = file_get_contents("data/".$chart.".txt");
+$content = file_get_contents($FOLDER."/".$chart.".txt");
 $ret = [];
 $ret["ok"] = 1;
 $ret["time"] = [];

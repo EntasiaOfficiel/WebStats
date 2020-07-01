@@ -1,6 +1,5 @@
 const MAXRAM = 8594128896
 const MAXGO = 8
-const BASE_URL = "http://localhost/api.php?chart="
 let selectedChart = ""
 let selectedNode
 
@@ -25,7 +24,7 @@ function select(node, update){
 		if (this.readyState == 4 && this.status == 200) {
 			let json = JSON.parse(this.responseText)
 			let d = []
-			if(json.time){
+			if(json.ok){
 				for(let i=0;i<json.time.length;i++){
 					let x = Number(json.time[i])
 					let y = round(json.ram[i]*MAXGO/MAXRAM)
@@ -33,15 +32,23 @@ function select(node, update){
 				}
 				config.datasets[0].data = d
 				CHART.update()
-			}else alert("Graphique demandé invalide !")
+			}else{
+				console.log(json)
+				alert("Graphique demandé invalide !")
+			}
 		}
 	}
 	
-	requ.open("GET", BASE_URL+selectedChart, true)
+	requ.open("GET", "api.php?chart="+selectedChart, true)
 	requ.send()
 
-	if(update)window.history.pushState({}, {}, "/?chart="+selectedChart)
-
+	if(update){
+		let normal = document.URL.substr(8).split("/")
+		normal.pop()	
+		normal.shift()
+		console.log(normal)	
+		window.history.pushState({}, {}, "?chart="+selectedChart)
+	}
 }
 
 

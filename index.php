@@ -11,9 +11,11 @@
 		<div id="menu">
 			<ul>
 				<?php
+					require("config.php");
+
 					if(isset($_GET["chart"]))$selected = $_GET["chart"];
 					else $selected = "";
-					foreach(scandir("data") as $v){
+					foreach(scandir($FOLDER) as $v){
 						if($v == "." || $v == "..")continue;
 						echo "<li> <a>".substr($v, 0, 5)."</a> </li>";
 					}
