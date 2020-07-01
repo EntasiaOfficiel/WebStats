@@ -44,7 +44,7 @@ foreach(explode("\n", $content) as $line){
 	$s = explode(" ", $line);
 	array_push($ret["time"], $s[0]);
 	array_push($ret["ram"], $s[1]);
-	// array_push($ret["cpu"], $s[2]);
+	if(sizeof($s)==3)array_push($ret["cpu"], $s[2]); // temp
 }
 echo json_encode($ret);
 

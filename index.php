@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Visualisation de la RAM</title>
+		<title>Visualisation des performances</title>
 		<script src='ressources/script.js'></script>
 		<script src='ressources/chart.min.js'></script>
 		<script src='ressources/chart.js'></script>

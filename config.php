@@ -1,3 +1,3 @@
 <?php
-    $FOLDER="/data"
+    $FOLDER="data"
 ?>

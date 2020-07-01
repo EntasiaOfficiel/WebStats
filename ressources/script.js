@@ -1,5 +1,3 @@
-const MAXRAM = 8594128896
-const MAXGO = 8
 let selectedChart = ""
 let selectedNode
 
@@ -12,6 +10,7 @@ for(let i of window.location.search.substring(1).split("&")){
 }
 
 function select(node, update){
+	// return
 	if(selectedNode){
 		selectedNode.className = "unselected"
 	}
@@ -23,14 +22,17 @@ function select(node, update){
 	requ.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			let json = JSON.parse(this.responseText)
-			let d = []
+			let ram = []
+			let cpu = []
 			if(json.ok){
 				for(let i=0;i<json.time.length;i++){
 					let x = Number(json.time[i])
 					let y = round(json.ram[i]*MAXGO/MAXRAM)
-					d.push({x:x, y:y})
+					ram.push({x:x, y:y})
+					cpu.push({x:x, y:json.cpu[i]})
 				}
-				config.datasets[0].data = d
+				config.datasets[0].data = ram
+				config.datasets[1].data = cpu
 				CHART.update()
 			}else{
 				console.log(json)
