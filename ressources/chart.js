@@ -1,5 +1,5 @@
-const MAXRAM = 8594128896
-const MAXGO = 8
+const MAXRAM = 17179869184
+const MAXGO = 16
 
 function round(int, n=2){
 	return Math.round(int*10**n)/10**n
@@ -96,7 +96,7 @@ var options = {
 			position: 'left',
 			ticks:{
 				min: 0,
-				max: 8,
+				max: MAXGO,
 				stepSize: 0.5,
 				callback : (a)=>{
 					if(a==MAXGO)return "Crash"
